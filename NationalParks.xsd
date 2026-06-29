@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	
+	<!-- This is the root element, NationalParks -->
+	<xs:element name="NationalParks">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- allows for one or more occurences of the NationalPark element -->
+				<xs:element name="NationalPark" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<!-- Declaring the name element -->
+							<xs:element name="Name" type="xs:string"/>
+
+							<!-- Declaring the phone element, allowing for 1 or more occurences-->
+							<xs:element name="Phone" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+
+							<!-- Declaring the address element-->
+							<xs:element name="Address">
+								<xs:complexType>
+									<xs:sequence>
+
+										<!-- Street number -->
+										<xs:element name="Number" type="xs:string"/>
+
+										<!-- Street name -->
+										<xs:element name="Street" type="xs:string"/>
+
+										<!-- City name -->
+										<xs:element name="City" type="xs:string"/>
+
+										<!-- State name -->
+										<xs:element name="State" type="xs:string"/>
+
+										<!-- Zip code -->
+										<xs:element name="Zip" type="xs:string"/>
+									
+										</xs:sequence>
+									<!-- Requried Attribute, Airport -->
+									<xs:attribute name="NearestAirport" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<!-- Creating the optional attribute, Rating-->
+						<xs:attribute name="Rating" type="xs:string" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
